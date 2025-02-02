@@ -1,0 +1,189 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  background-color: var(--couleur-container);
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+  align-items: center;
+  width: fit-content;
+  max-width: 650px;
+  padding: 40px;
+  border-radius: 10px;
+}
+.stagelink {
+  font-size: 32px;
+  font-weight: 500;
+}
+.boutons {
+  display: flex;
+  gap: 40px;
+}
+.boutons button {
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  background-color: transparent;
+}
+.boutons button.active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 6px;
+}
+.form-container {
+  display: none;
+}
+.active-content,
+.dynamic-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+#loginForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  gap: 10px;
+}
+input {
+  width: 270px;
+  border: 1px solid var(--couleur-input-border);
+  border-radius: 4px;
+  height: 30px;
+  padding: 2px 3px;
+  background-color: transparent;
+}
+#loginForm button,
+#registerForm button {
+  display: flex;
+  padding: 0;
+  border: 0;
+  color: var(--texte-button);
+  background-color: var(--couleur-button);
+  width: fit-content;
+  padding: 7px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+}
+.bloc-input {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+form {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.texte-intro {
+  background-color: var(--couleur-backtexte);
+  padding: 15px;
+  border-radius: 10px;
+  width: auto;
+}
+#registerForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+#registerForm form label input {
+  display: flex;
+  margin: 0;
+}
+
+.radio,
+.cookie {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.radio input,
+.cookie input {
+  display: none;
+}
+.radio label,
+.cookie label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  position: relative;
+  padding-left: 22px;
+}
+.radio label::before,
+.cookie label::before {
+  content: "";
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 1.4px solid #000;
+  border-radius: 4px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  line-height: 15px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.cookie input:checked + label::before {
+  content: "✓";
+  font-family: "Kalnia";
+}
+.radio input:checked + label::before {
+  content: "✓";
+  font-family: "Kalnia";
+}
+._2bloc {
+  display: flex;
+  gap: 30px;
+}
+._2bloc2 {
+  display: flex;
+  justify-content: center;
+}
+.cookie label {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.soulignage {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--couleur-texte);
+}
+@media (max-width: 800px) {
+  .container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 2vw;
+  }
+  ._2bloc {
+    flex-direction: column;
+  }
+  .cookie label {
+    flex-direction: column;
+    padding-left: 30px;
+    text-align: left;
+  }
+  .cookie-label {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  input {
+    max-width: 70vw;
+  }
+}

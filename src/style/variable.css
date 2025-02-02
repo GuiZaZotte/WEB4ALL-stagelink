@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&display=swap");
+
+:root {
+  --couleur-body: #f6f6f6;
+  --couleur-container: #fff;
+  --couleur-input-border: #606060;
+  --couleur-texte: #000;
+  --couleur-backtexte: #edf1ff;
+  --couleur-sous-texte: #ffffff95;
+  --couleur-button: #000;
+  --texte-button: #fff;
+}
+
+body {
+  background-color: var(--couleur-body);
+  color: var(--couleur-texte);
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+.stagelink {
+  font-family: "Kalnia";
+}
+header {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.first-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header .stagelink {
+  font-size: 32px;
+  font-weight: 500;
+  width: fit-content;
+}
+.compte {
+  background-color: var(--couleur-button);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border-radius: 100px;
+  gap: 8px;
+  height: 38px;
+}
+.nom-compte {
+  color: var(--texte-button);
+}
+header input {
+  border: 0;
+  padding: 0;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+}
+header form button {
+  border: 0;
+  display: flex;
+  padding: 0;
+}
+header form {
+  border: solid 1px var(--couleur-input-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  width: 400px;
+  gap: 5px;
+  padding: 0 16px;
+  border-radius: 100px;
+}
+nav {
+  display: flex;
+  margin: 0 auto;
+  gap: 20px;
+}
