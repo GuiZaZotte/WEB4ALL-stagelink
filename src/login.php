@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $row = $result->fetch_assoc();
             if ($mot_de_passe == $row['mot_de_passe']) { // Comparaison des mots de passe (en clair)
                 session_start();
+                $_SESSION['prenom'] = $row['prenom'];
                 $_SESSION['email'] = $email;
                 $_SESSION['role'] = $row['role'];
                 header("Location: accueil.php"); // Redirection vers une page sécurisée après connexion
