@@ -16,7 +16,7 @@ $page = basename($_SERVER['PHP_SELF']);
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>StageLink</title>
+    <title><?php echo isset($pageTitle) ? $pageTitle : 'StageLink'; ?></title>
     <link rel="stylesheet" href="style/variable.css" />
     <link rel="stylesheet" href="style/accueil.css" />
     <link rel="icon" href="img/favicon.svg" type="image/svg" />
