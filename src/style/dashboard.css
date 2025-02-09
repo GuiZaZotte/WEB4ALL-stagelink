@@ -1,0 +1,71 @@
+.container {
+  background-color: var(--couleur-container);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: fit-content;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 30px auto;
+}
+.container input,
+.container select,
+.container textarea {
+  width: 400px;
+  border: 1px solid var(--couleur-input-border);
+  border-radius: 4px;
+  height: 30px;
+  padding: 2px 3px;
+  background-color: transparent;
+  margin: auto;
+}
+.container select {
+  width: 407px;
+  height: 35px;
+}
+.container textarea {
+  height: 60px;
+}
+label {
+  width: 407px;
+  margin: auto;
+}
+.competences-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.competences-container select {
+  height: 60px;
+}
+h2 {
+  margin: 0;
+}
+
+.container form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+form button {
+  display: flex;
+  padding: 0;
+  border: 0;
+  color: var(--texte-button);
+  background-color: var(--couleur-button);
+  width: fit-content;
+  padding: 7px 24px;
+  border-radius: 30px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  margin: auto;
+}
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}

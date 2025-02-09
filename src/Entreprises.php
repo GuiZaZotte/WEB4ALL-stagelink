@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Entreprises - StageLink"; // Définir le titre pour la page des offres
-include('header.php'); // Inclure le header avec ce titre
+$pageTitle = "Entreprises - StageLink"; 
+include('header.php'); 
 ?>
     <div class="easter-egg">
       <img src="img/favicon.svg" alt="" class="logo" /><img
