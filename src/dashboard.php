@@ -1,6 +1,6 @@
 <?php
-$pageTitle = "Dashboard - StageLink"; 
-include('header.php'); 
+$pageTitle = "Dashboard - StageLink";
+include('header.php');
 ?>
 
 <?php include("creer-offre.php"); ?>

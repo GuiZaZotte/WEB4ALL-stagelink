@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
 :root {
   --couleur-body: #f6f6f6;
   --couleur-container: #fff;
@@ -14,6 +18,7 @@
   --couleur-orange: #fcdf9d;
   --couleur-vert: #d4f4dd;
   --couleur-rouge: #ffc9c9;
+  --couleur-balise: #ccdfff;
 }
 
 body {

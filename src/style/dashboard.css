@@ -37,7 +37,7 @@ label {
   gap: 10px;
 }
 .competences-container select {
-  height: 60px;
+  height: 90px;
 }
 h2 {
   margin: 0;
@@ -48,7 +48,7 @@ h2 {
   flex-direction: column;
   gap: 10px;
 }
-form button {
+.container button {
   display: flex;
   padding: 0;
   border: 0;

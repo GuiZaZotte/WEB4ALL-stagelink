@@ -46,36 +46,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style/variable.css" />
     <link rel="stylesheet" href="style/login.css" />
     <link rel="icon" href="img/favicon.svg" type="image/svg" />
     <title>Page de login</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="container">
-      <div class="stagelink">StageLink</div>
-      <div class="form-container">
-        <div class="texte-intro">
-          Ravi de vous retrouver sur StageLink !<br />
-          Retrouvez toutes vos offres et candidatures en vous connectant :
+        <div class="stagelink">StageLink</div>
+        <div class="form-container">
+            <div class="texte-intro">
+                Ravi de vous retrouver sur StageLink !<br />
+                Retrouvez toutes vos offres et candidatures en vous connectant :
+            </div>
+
+            <!-- Bloc de message pour afficher les erreurs -->
+            <?php if (!empty($message)): ?>
+            <div class="message"><?php echo $message; ?></div>
+            <?php endif; ?>
+
+            <form method="POST" action="login.php">
+                <div class="bloc-input">
+                    <label for="">Adresse mail <input type="email" name="email" required /></label>
+                    <label for="">Mot de passe <input type="password" name="mot_de_passe" required /></label>
+                </div>
+                <button type="submit">Je me connecte</button>
+            </form>
         </div>
-        
-        <!-- Bloc de message pour afficher les erreurs -->
-        <?php if (!empty($message)): ?>
-          <div class="message"><?php echo $message; ?></div>
-        <?php endif; ?>
-        
-        <form method="POST" action="login.php">
-          <div class="bloc-input">
-            <label for="">Adresse mail <input type="email" name="email" required /></label>
-            <label for="">Mot de passe <input type="password" name="mot_de_passe" required /></label>
-          </div>
-          <button type="submit">Je me connecte</button>
-        </form>
-      </div>
     </div>
-  </body>
+</body>
+
 </html>

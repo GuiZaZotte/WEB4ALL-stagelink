@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <head>
-    <link rel="stylesheet" href="style/dashboard.css"> 
+    <link rel="stylesheet" href="style/dashboard.css">
     <link rel="stylesheet" href="style/variable.css">
 
 </head>
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <select id="entreprise_id" name="entreprise_id" required>
             <option value="">Sélectionnez une entreprise</option>
             <?php while ($row = $entreprises->fetch_assoc()): ?>
-                <option value="<?= $row['id'] ?>"><?= htmlspecialchars($row['nom']) ?></option>
+            <option value="<?= $row['id'] ?>"><?= htmlspecialchars($row['nom']) ?></option>
             <?php endwhile; ?>
         </select>
 
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="competences">Compétences requises :</label>
             <select id="competences" name="competences[]" multiple required>
                 <?php while ($row = $competences->fetch_assoc()): ?>
-                    <option value="<?= $row['id'] ?>"><?= htmlspecialchars($row['nom']) ?></option>
+                <option value="<?= $row['id'] ?>"><?= htmlspecialchars($row['nom']) ?></option>
                 <?php endwhile; ?>
             </select>
         </div>
