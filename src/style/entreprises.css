@@ -11,13 +11,14 @@
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 28px;
   text-align: center;
   font-weight: 500;
 }
 
 .container h2 {
   width: fit-content;
+  font-size: 24px;
 }
 
 .entreprises {

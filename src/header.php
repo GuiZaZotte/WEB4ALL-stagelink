@@ -40,7 +40,8 @@ $page = basename($_SERVER['PHP_SELF']);
         <nav>
             <a href="accueil.php" class="pages <?= ($page == 'accueil.php') ? 'activer' : '' ?>">Accueil</a>
             <a href="offres.php" class="pages <?= ($page == 'offres.php') ? 'activer' : '' ?>">Offres</a>
-            <a href="entreprises.php" class="pages <?= ($page == 'entreprises.php') ? 'activer' : '' ?>">Entreprises</a>
+            <a href="entreprises.php" class="pages <?= (in_array($page, ['entreprises.php', 'entreprise_details.php'])) ? 'activer' : '' ?>
+">Entreprises</a>
 
             <?php if ($role == "Administrateur" || $role == "Pilote"): ?>
             <a href="dashboard.php" class="pages <?= ($page == 'dashboard.php') ? 'activer' : '' ?>">Dashboard</a>
