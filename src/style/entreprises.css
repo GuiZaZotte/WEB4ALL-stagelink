@@ -55,3 +55,8 @@ h2 {
   flex-direction: row-reverse;
   justify-content: space-between;
 }
+.entreprise-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
