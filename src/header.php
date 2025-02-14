@@ -1,5 +1,11 @@
 <?php
-session_start(); // Démarrer la session
+require_once 'config.php';
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+} else {
+    // Session is already started
+}
 
 // Récupérer les informations de l'utilisateur
 $prenom = isset($_SESSION['prenom']) ? $_SESSION['prenom'] : 'Mon Compte';
@@ -39,12 +45,12 @@ $page = basename($_SERVER['PHP_SELF']);
         </div>
         <nav>
             <a href="accueil.php" class="pages <?= ($page == 'accueil.php') ? 'activer' : '' ?>">Accueil</a>
-            <a href="offres.php" class="pages <?= ($page == 'offres.php') ? 'activer' : '' ?>">Offres</a>
-            <a href="entreprises.php" class="pages <?= (in_array($page, ['entreprises.php', 'entreprise_details.php'])) ? 'activer' : '' ?>
+            <a href="offres.php" class="pages <?= (in_array($page, ['offres.php', 'offre_details.php'])) ? 'activer' : '' ?>
+            ">Offres</a> <a href="entreprises.php" class="pages <?= (in_array($page, ['entreprises.php', 'entreprise_details.php'])) ? 'activer' : '' ?>
 ">Entreprises</a>
 
             <?php if ($role == "Administrateur" || $role == "Pilote"): ?>
-            <a href="dashboard.php" class="pages <?= ($page == 'dashboard.php') ? 'activer' : '' ?>">Dashboard</a>
+                <a href="dashboard.php" class="pages <?= ($page == 'dashboard.php') ? 'activer' : '' ?>">Dashboard</a>
             <?php endif; ?>
         </nav>
     </header>

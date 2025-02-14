@@ -103,3 +103,7 @@ h3 {
   fill: red;
   stroke: red;
 }
+a.offre-link {
+  text-decoration: none;
+  color: inherit;
+}

@@ -49,52 +49,54 @@ if (isset($_SESSION['email'])) {
     while ($row = $offres->fetch_assoc()): 
         $isLiked = in_array((int)$row['id'], $likes);
     ?>
-    <div class="container">
-        <div class="offre-title">
-            <div class="like-container">
-                <h2><?= htmlspecialchars($row['titre']) ?> H/F</h2>
-                <?php if (isset($_SESSION['email'])) { ?>
-                <button class="like-button <?= $isLiked ? 'liked' : '' ?>" data-offre-id="<?= $row['id'] ?>">
-                    <svg class="like-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                        stroke-width="1.5" stroke="#000000" width="40" height="40">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
-                    </svg>
-                </button>
-                <?php } ?>
+    <a href="offre_details.php?id=<?= $row['id'] ?>" class="offre-link">
+        <div class="container">
+            <div class="offre-title">
+                <div class="like-container">
+                    <h2><?= htmlspecialchars($row['titre']) ?> H/F</h2>
+                    <?php if (isset($_SESSION['email'])) { ?>
+                    <button class="like-button <?= $isLiked ? 'liked' : '' ?>" data-offre-id="<?= $row['id'] ?>">
+                        <svg class="like-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="#000000" width="40" height="40">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                        </svg>
+                    </button>
+                    <?php } ?>
+                </div>
+                <p class="entreprise"><?= htmlspecialchars($row['entreprise_nom']) ?></p>
             </div>
-            <p class="entreprise"><?= htmlspecialchars($row['entreprise_nom']) ?></p>
+            <div class="balise-container">
+                <p class="balise">Stage</p>
+                <p class="balise">
+                    <?= htmlspecialchars($row['base_remuneration']) ?>
+                    € / mois
+                </p>
+            </div>
+            <?php
+                $sql_comp = "SELECT c.nom FROM Competences c
+                   JOIN Offres_Competences oc ON c.id = oc.competence_id
+                WHERE oc.offre_id = ?";
+                $stmt_comp = $conn->prepare($sql_comp);
+                $stmt_comp->bind_param("i", $row['id']);
+                $stmt_comp->execute();
+                $result_comp = $stmt_comp->get_result();
+            ?>
+            <h3>Compétences requises :</h3>
+            <div class="competences">
+                <?php while ($comp = $result_comp->fetch_assoc()): ?>
+                <p class="balise2"><?= htmlspecialchars($comp['nom']) ?></p>
+                <?php endwhile; ?>
+            </div>
+            <div class="postuler">
+                <p class="date">
+                    Du <?= date('d/m/Y', strtotime($row['date_debut'])) ?>
+                    au <?= $row['date_fin'] ? date('d/m/Y', strtotime($row['date_fin'])) : 'Non spécifié' ?>
+                </p>
+                <div class="button">Voir l'offre</div>
+            </div>
         </div>
-        <div class="balise-container">
-            <p class="balise">Stage</p>
-            <p class="balise">
-                <?= htmlspecialchars($row['base_remuneration']) ?>
-                € / mois
-            </p>
-        </div>
-        <?php
-            $sql_comp = "SELECT c.nom FROM Competences c
-               JOIN Offres_Competences oc ON c.id = oc.competence_id
-            WHERE oc.offre_id = ?";
-            $stmt_comp = $conn->prepare($sql_comp);
-            $stmt_comp->bind_param("i", $row['id']);
-            $stmt_comp->execute();
-            $result_comp = $stmt_comp->get_result();
-        ?>
-        <h3>Compétences requises :</h3>
-        <div class="competences">
-            <?php while ($comp = $result_comp->fetch_assoc()): ?>
-            <p class="balise2"><?= htmlspecialchars($comp['nom']) ?></p>
-            <?php endwhile; ?>
-        </div>
-        <div class="postuler">
-            <p class="date">
-                Du <?= date('d/m/Y', strtotime($row['date_debut'])) ?>
-                au <?= $row['date_fin'] ? date('d/m/Y', strtotime($row['date_fin'])) : 'Non spécifié' ?>
-            </p>
-            <div class="button">Voir l'offre</div>
-        </div>
-    </div>
+    </a>
     <?php endwhile; ?>
 </div>
 
