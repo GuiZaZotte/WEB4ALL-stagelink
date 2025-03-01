@@ -97,6 +97,7 @@
   text-decoration: none;
   border-radius: 99px;
   transition: background-color 0.3s;
+  border: 0;
 }
 
 .btn-postuler:hover,
@@ -113,7 +114,6 @@
   border-radius: 4px;
   transition: background-color 0.3s;
   cursor: pointer;
-  margin-right: 1rem;
   font-size: 1rem;
 }
 
@@ -125,43 +125,52 @@
   max-width: 600px;
   margin: 2rem auto 0;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .form-candidature h3 {
   color: var(--primary-color);
-  margin-bottom: 1.5rem;
   text-align: center;
 }
 
+.form-candidature form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .form-group {
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
-  color: #333;
+  color: var(--couleur-input-border);
 }
 
 .form-group input[type="file"] {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ddd;
+  width: auto;
+  border: 1px solid var(--couleur-input-border);
   border-radius: 4px;
+  height: fit-content;
+  padding: 2px 3px;
+  background-color: transparent;
 }
 
 .form-group textarea {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid #ddd;
+  border: 1px solid var(--couleur-input-border);
   border-radius: 4px;
-  resize: vertical;
-  font-family: inherit;
+  height: 150px;
+  padding: 2px 3px;
+  background-color: transparent;
 }
 
 .form-actions {
   text-align: center;
-  margin-top: 2rem;
 }
 
 h2 {

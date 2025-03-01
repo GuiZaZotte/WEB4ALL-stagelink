@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (btnShowForm && formCandidature && btnCancel) {
         btnShowForm.addEventListener('click', function() {
             btnShowForm.style.display = 'none';
-            formCandidature.style.display = 'block';
+            formCandidature.style.display = 'flex';
         });
         
         btnCancel.addEventListener('click', function() {

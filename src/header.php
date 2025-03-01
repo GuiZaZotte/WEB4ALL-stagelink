@@ -32,9 +32,20 @@ $page = basename($_SERVER['PHP_SELF']);
     <header>
         <div class="first-bar">
             <div class="stagelink">StageLink</div>
-            <form action="recherche.php" method="get">
-                <input type="text" name="q" placeholder="Rechercher..." />
-                <button type="submit"><img src="img/search.svg" alt="Rechercher" /></button>
+            <form onsubmit="return false;" <?php if ($page === 'accueil.php' || $page === 'dashboard.php') echo 'style="display: none;"'; ?>>
+                <input type="text" id="searchInput" placeholder="<?php
+                    switch ($page) {
+                        case 'offres.php':
+                            echo 'Rechercher une offre...';
+                            break;
+                        case 'entreprises.php':
+                            echo 'Rechercher une entreprise...';
+                            break;
+                        default:
+                            echo 'Rechercher...';
+                    }
+                ?>" />
+                <button type="button"><img src="img/search.svg" alt="Rechercher" /></button>
             </form>
             <div class="compte">
                 <img src="img/compte.svg" alt="Mon compte" />
@@ -54,3 +65,43 @@ $page = basename($_SERVER['PHP_SELF']);
             <?php endif; ?>
         </nav>
     </header>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('searchInput');
+        if (!searchInput) return;
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            
+            // Sur la page des offres
+            if (window.location.pathname.includes('offres.php')) {
+                const offres = document.querySelectorAll('.offre-link');
+                offres.forEach(offre => {
+                    const titre = offre.querySelector('h2').textContent.toLowerCase();
+                    
+                    if (titre.includes(searchTerm)) {
+                        offre.style.display = '';
+                    } else {
+                        offre.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Sur la page des entreprises
+            if (window.location.pathname.includes('entreprises.php')) {
+                const entreprises = document.querySelectorAll('.entreprise-link');
+                entreprises.forEach(entreprise => {
+                    const nom = entreprise.querySelector('h2').textContent.toLowerCase();
+                    const description = entreprise.querySelector('.description') ? 
+                        entreprise.querySelector('.description').textContent.toLowerCase() : '';
+                    
+                    if (nom.includes(searchTerm) || description.includes(searchTerm)) {
+                        entreprise.style.display = '';
+                    } else {
+                        entreprise.style.display = 'none';
+                    }
+                });
+            }
+        });
+    });
+    </script>

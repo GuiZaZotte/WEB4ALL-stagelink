@@ -16,7 +16,6 @@ if (!isset($_SESSION['email']) || !in_array($_SESSION['role'], ['Administrateur'
 }
 ?>
 
-<link rel="stylesheet" href="style/dashboard.css">
 
 <div class="dashboard">
     <div class="dashboard-header">
